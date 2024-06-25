@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, Card, DatePicker, Row, Col } from 'antd';
 import { Pie, Line, Histogram } from '@ant-design/plots';
 import moment from 'moment';
@@ -63,7 +63,7 @@ const columns = [
   },
 ];
 
-export default function GerenciarPromocoes() {
+export default function RelatoriosVendas() {
   const [filteredData, setFilteredData] = useState(initialData);
   const [dates, setDates] = useState([null, null]);
 
@@ -113,6 +113,12 @@ export default function GerenciarPromocoes() {
     colorField: 'date',
   };
 
+  // Ensure charts are only rendered on the client side
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <div className="flex flex-col h-[67vh] overflow-y-scroll overflow-x-hidden w-full">
       <h1 className="text-xl font-semibold">
@@ -131,26 +137,30 @@ export default function GerenciarPromocoes() {
         </Card>
       </div>
 
-      <div className="mt-4">
-        <Row gutter={16}>
-          <Col span={12}>
-            <Card title="Gráfico de Vendas (Pizza)">
-              <Pie {...pieConfig} />
-            </Card>
-          </Col>
-          <Col span={12}>
-            <Card title="Gráfico de Receita (Linha)">
-              <Line {...lineConfig} />
-            </Card>
-          </Col>
-        </Row>
-      </div>
+      {isClient && (
+        <div className="mt-4">
+          <Row gutter={16}>
+            <Col span={12}>
+              <Card title="Gráfico de Vendas (Pizza)">
+                <Pie {...pieConfig} />
+              </Card>
+            </Col>
+            <Col span={12}>
+              <Card title="Gráfico de Receita (Linha)">
+                <Line {...lineConfig} />
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      )}
 
-      <div className="mt-4">
-        <Card title="Histograma de Vendas">
-          <Histogram {...histogramConfig} />
-        </Card>
-      </div>
+      {isClient && (
+        <div className="mt-4">
+          <Card title="Histograma de Vendas">
+            <Histogram {...histogramConfig} />
+          </Card>
+        </div>
+      )}
     </div>
   );
 }
