@@ -2,8 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { Table, Card, DatePicker, Row, Col } from 'antd';
-import { Pie, Line, Histogram } from '@ant-design/plots';
+import { Pie, Line, Bar } from 'react-chartjs-2';
 import moment from 'moment';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineElement, ArcElement, Title, Tooltip, Legend);
 
 const { RangePicker } = DatePicker;
 
@@ -78,46 +81,76 @@ export default function RelatoriosVendas() {
     setFilteredData(filtered);
   };
 
-  const salesData = filteredData.map(item => ({ type: item.product, value: item.sales }));
-  const revenueData = filteredData.map(item => ({ date: item.date, revenue: item.revenue }));
-  const histogramData = filteredData.map(item => ({ date: item.date, sales: item.sales }));
+  const salesData = {
+    labels: filteredData.map(item => item.product),
+    datasets: [
+      {
+        label: 'Vendas',
+        data: filteredData.map(item => item.sales),
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#1979C9'],
+      },
+    ],
+  };
 
-  const pieConfig = {
-    appendPadding: 10,
-    data: salesData,
-    angleField: 'value',
-    colorField: 'type',
-    radius: 1,
-    label: {
-      type: 'spider',
-      labelHeight: 28,
-      content: '{name}\n{percentage}',
+  const revenueData = {
+    labels: filteredData.map(item => item.date),
+    datasets: [
+      {
+        label: 'Receita',
+        data: filteredData.map(item => item.revenue),
+        borderColor: '#36A2EB',
+        backgroundColor: '#36A2EB',
+        fill: false,
+      },
+    ],
+  };
+
+  const histogramData = {
+    labels: filteredData.map(item => item.date),
+    datasets: [
+      {
+        label: 'Vendas',
+        data: filteredData.map(item => item.sales),
+        backgroundColor: '#FF6384',
+      },
+    ],
+  };
+
+  const pieOptions: any = {
+    plugins: {
+      legend: {
+        position: 'right',
+      },
+      title: {
+        display: true,
+        text: 'Vendas dos Produtos',
+      },
     },
   };
 
-  const lineConfig = {
-    data: revenueData,
-    xField: 'date',
-    yField: 'revenue',
-    smooth: true,
-    point: {
-      size: 5,
-      shape: 'diamond',
+  const lineOptions: any = {
+    plugins: {
+      legend: {
+        position: 'right',
+      },
+      title: {
+        display: true,
+        text: 'Receita ao Longo do Tempo',
+      },
     },
   };
 
-  const histogramConfig = {
-    data: histogramData,
-    binField: 'sales',
-    binWidth: 10,
-    colorField: 'date',
+  const barOptions = {
+    plugins: {
+      legend: {
+        position: 'right',
+      },
+      title: {
+        display: true,
+        text: 'Histograma de Vendas',
+      },
+    },
   };
-
-  // Ensure charts are only rendered on the client side
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <div className="flex flex-col h-[67vh] overflow-y-scroll overflow-x-hidden w-full">
@@ -137,30 +170,26 @@ export default function RelatoriosVendas() {
         </Card>
       </div>
 
-      {isClient && (
-        <div className="mt-4">
-          <Row gutter={16}>
-            <Col span={12}>
-              <Card title="Gráfico de Vendas (Pizza)">
-                <Pie {...pieConfig} />
-              </Card>
-            </Col>
-            <Col span={12}>
-              <Card title="Gráfico de Receita (Linha)">
-                <Line {...lineConfig} />
-              </Card>
-            </Col>
-          </Row>
-        </div>
-      )}
+      <div className="mt-4">
+        <Row gutter={16}>
+          <Col span={12}>
+            <Card title="Gráfico de Vendas (Pizza)">
+              <Pie data={salesData} options={pieOptions} />
+            </Card>
+          </Col>
+          <Col span={12}>
+            <Card title="Gráfico de Receita (Linha)">
+              <Line data={revenueData} options={lineOptions} />
+            </Card>
+          </Col>
+        </Row>
+      </div>
 
-      {isClient && (
-        <div className="mt-4">
-          <Card title="Histograma de Vendas">
-            <Histogram {...histogramConfig} />
-          </Card>
-        </div>
-      )}
+      <div className="mt-4">
+        <Card title="Histograma de Vendas">
+          <Bar data={histogramData} options={barOptions} />
+        </Card>
+      </div>
     </div>
   );
 }

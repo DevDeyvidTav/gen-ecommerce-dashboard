@@ -1,8 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Table, Card } from 'antd';
-import { Bar } from '@ant-design/plots';
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const data = [
   {
@@ -49,35 +52,37 @@ const columns = [
   },
 ];
 
+const barData = {
+  labels: data.map(item => item.product),
+  datasets: [
+    {
+      label: 'Vendas',
+      data: data.map(item => item.sales),
+      backgroundColor: '#1979C9',
+    },
+  ],
+};
+
+const barOptions: any = {
+  indexAxis: 'y',
+  elements: {
+    bar: {
+      borderWidth: 2,
+    },
+  },
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'right',
+    },
+    title: {
+      display: true,
+      text: 'Vendas dos Produtos',
+    },
+  },
+};
+
 export default function GerenciarPromocoes() {
-  const [barConfig, setBarConfig] = useState<any>(null);
-
-  useEffect(() => {
-    const barData = data.map(item => ({
-      type: item.product,
-      sales: item.sales,
-    }));
-
-    const config = {
-      data: barData,
-      xField: 'sales',
-      yField: 'type',
-      seriesField: 'type',
-      legend: false,
-      color: ['#1979C9'],
-      label: {
-        position: 'middle',
-        style: {
-          fill: '#FFFFFF',
-          opacity: 0.6,
-        },
-      },
-      barWidthRatio: 0.8,
-    };
-
-    setBarConfig(config);
-  }, []);
-
   return (
     <div className="flex flex-col h-[67vh] overflow-y-scroll w-full">
       <h1 className="text-xl font-semibold">
@@ -92,10 +97,9 @@ export default function GerenciarPromocoes() {
 
       <div className="mt-4">
         <Card title="Gráfico de Vendas dos Produtos">
-          {barConfig && <Bar {...barConfig} />}
+          <Bar data={barData} options={barOptions} />
         </Card>
       </div>
     </div>
   );
-};
-
+}
