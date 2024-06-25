@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  .red-button .ant-picker-suffix button {
+    background-color: red;
+    border-color: red;
+    color: white;
+  }
+}
+/* Estilos para a barra de rolagem */
+::-webkit-scrollbar {
+  width: 9px; /* Largura da barra de rolagem */
+  border-radius: 20px;
+}
+
+/* Estilo do trilho da barra de rolagem */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Cor de fundo do trilho */
+  border-radius: 20px;
+}
+
+/* Estilo do polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: #9c9999; /* Cor do polegar */
+  border-radius: 20px;
+}
+
+/* Estilo do polegar da barra de rolagem quando estiver em hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #7a7a7a; /* Cor do polegar em hover */
+  transition: 5s;
+  border-radius: 20px;
+}
