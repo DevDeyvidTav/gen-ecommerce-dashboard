@@ -52,7 +52,7 @@ export function LayoutComponent({ children }: { children: React.ReactNode }) {
       <a
         onClick={handleLogout}
         className="flex justify-center hover:bg-gray-200 w-full items-center
-        py-1 rounded-md cursor-pointer transition-all duration-300"
+        py-1 rounded-full cursor-pointer transition-all duration-300"
       >
         Sair
       </a>
@@ -64,14 +64,14 @@ export function LayoutComponent({ children }: { children: React.ReactNode }) {
   } = theme.useToken();
 
   return (
-    <Layout>
+    <Layout className="min-h-screen">
       <Sider
         width={260}
-        color="#232A60"
+        color="#ffffff"
         style={{
-          background: "#232A60",
+          background: "#ffffff",
         }}
-        className="h-screen bg-[#232A60]"
+        className="h-[80vh] rounded-lg ml-2 bg-white shadow-lg"
         trigger={null}
         collapsible
         collapsed={collapsed}
@@ -80,10 +80,10 @@ export function LayoutComponent({ children }: { children: React.ReactNode }) {
           className="flex justify-center items-center text-red-600 text-xl
            py-5 pb-12"
         >
-          <Image src="/assets/logo.jpeg" width={40} height={100} alt="logo" />
+          <Image className="rounded-full" src="/assets/logo.jpg" width={40} height={100} alt="logo" />
         </div>
         <Menu
-          className="bg-[#232A60]"
+          className="bg-white"
           theme="light"
           mode="inline"
           selectedKeys={[routeName]}
@@ -112,7 +112,7 @@ export function LayoutComponent({ children }: { children: React.ReactNode }) {
               content={content}
               title={
                 <div className="text-center flex justify-center items-center gap-2">
-                  Bem vindo! <LikeOutlined className="text-blue-500" />
+                  Bem vindo! <LikeOutlined className="text-primary" />
                 </div>
               }
               trigger="click"
@@ -124,7 +124,8 @@ export function LayoutComponent({ children }: { children: React.ReactNode }) {
                 icon={
                   <div>
                     <Image
-                      src="/assets/logo.jpeg"
+                      className="rounded-full"
+                      src="/assets/logo.jpg"
                       alt="avatar"
                       width={30}
                       height={20}

@@ -137,7 +137,7 @@ export function TableProductsComponent({
       render: (_, { key: id }) => (
         <div className="flex gap-5">
           <div onClick={() => showModalEdit(id)} className="cursor-pointer">
-            <EditOutlined className="text-blue-700 text-[16px]	" />
+            <EditOutlined className="text-primary text-[16px]	" />
           </div>
           <div onClick={() => showModalDelete(id)} className="cursor-pointer">
             <DeleteOutlined className="text-red-500 text-[16px]	" />

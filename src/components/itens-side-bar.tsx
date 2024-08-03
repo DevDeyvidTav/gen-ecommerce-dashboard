@@ -46,24 +46,24 @@ export function ItensComponet(collapsed: any) {
         {collapsed ? (
           "Painel de Controle"
         ) : (
-          <div className="text-blue-400">Painel de Controle</div>
+          <div className="text-primary">Painel de Controle</div>
         )}
       </Link>,
       "painel-de-controle",
       <div>
         <AppstoreOutlined
           style={{ fontSize: "24px" }}
-          className="text-blue-300"
+          className="text-primary"
         />
       </div>
     ),
     getItem(
-      <div className="text-white">Produtos</div>,
+      <div className="text-primary">Produtos</div>,
       "Produtos",
       <div>
         <ProductOutlined
           style={{ fontSize: "24px" }}
-          className="text-blue-300"
+          className="text-primary"
         />
       </div>,
       [
@@ -72,7 +72,7 @@ export function ItensComponet(collapsed: any) {
             {collapsed ? (
               "Criar Produtos"
             ) : (
-              <div className="text-blue-400">Criar Produtos</div>
+              <div className="text-primary">Criar Produtos</div>
             )}
           </Link>,
           "painel-de-controle/criar-produtos",
@@ -80,7 +80,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <ShopOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -90,7 +90,7 @@ export function ItensComponet(collapsed: any) {
             {collapsed ? (
               "Criar Produtos"
             ) : (
-              <div className="text-blue-400">Criar Estoque</div>
+              <div className="text-primary">Criar Estoque</div>
             )}
           </Link>,
           "painel-de-controle/estoque",
@@ -98,7 +98,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <ShoppingCartOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -109,7 +109,7 @@ export function ItensComponet(collapsed: any) {
             {collapsed ? (
               "Gerenciar Produtos"
             ) : (
-              <div className="text-blue-400">Meus Produtos</div>
+              <div className="text-primary">Meus Produtos</div>
             )}
           </Link>,
           "painel-de-controle/gerenciar-produtos",
@@ -117,7 +117,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <PieChartOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -125,12 +125,12 @@ export function ItensComponet(collapsed: any) {
         getItem(
           <Link
             href={"/painel-de-controle/categorias-produtos"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Categorias "
             ) : (
-              <div className="text-blue-400">Categorias</div>
+              <div className="text-primary">Categorias</div>
             )}
           </Link>,
           "painel-de-controle/categorias-produtos",
@@ -138,7 +138,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <FormOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -146,24 +146,24 @@ export function ItensComponet(collapsed: any) {
       ]
     ),
     getItem(
-      <div className="text-white">Promocões</div>,
+      <div className="text-primary">Promocões</div>,
       "4",
       <div className="">
         <NotificationOutlined
           style={{ fontSize: "24px" }}
-          className="text-blue-300"
+          className="text-primary"
         />
       </div>,
       [
         getItem(
           <Link
             href={"/painel-de-controle/criar-promocoes"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Criar Promoção"
             ) : (
-              <div className="text-blue-400">Criar Promoção</div>
+              <div className="text-primary">Criar Promoção</div>
             )}
           </Link>,
           "painel-de-controle/criar-promocoes",
@@ -171,7 +171,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <FireOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -179,12 +179,12 @@ export function ItensComponet(collapsed: any) {
         getItem(
           <Link
             href={"/painel-de-controle/gerenciar-promocoes"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Gerenciar Promoção"
             ) : (
-              <div className="text-blue-400">Gerenciar Promoção</div>
+              <div className="text-primary">Gerenciar Promoção</div>
             )}
           </Link>,
           "painel-de-controle/gerenciar-promocoes",
@@ -192,7 +192,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <LineChartOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -200,24 +200,24 @@ export function ItensComponet(collapsed: any) {
       ]
     ),
     getItem(
-      <div className="text-white">Pedidos</div>,
+      <div className="text-primary">Pedidos</div>,
       "5",
       <div>
         <FileDoneOutlined
           style={{ fontSize: "24px" }}
-          className="text-blue-300"
+          className="text-primary"
         />
       </div>,
       [
         getItem(
           <Link
             href={"/painel-de-controle/visualizar-pedidos"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Visualizar Pedidos"
             ) : (
-              <div className="text-blue-400">Visualizar Pedidos</div>
+              <div className="text-primary">Visualizar Pedidos</div>
             )}
           </Link>,
           "painel-de-controle/visualizar-pedidos",
@@ -225,7 +225,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <FileTextOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -233,24 +233,24 @@ export function ItensComponet(collapsed: any) {
       ]
     ),
     getItem(
-      <div className="text-white">Banners</div>,
+      <div className="text-primary">Banners</div>,
       "6",
       <div>
         <FileImageOutlined
           style={{ fontSize: "24px" }}
-          className="text-blue-300"
+          className="text-primary"
         />
       </div>,
       [
         getItem(
           <Link
             href={"/painel-de-controle/criar-novos-banners"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Criar Novos Banners"
             ) : (
-              <div className="text-blue-400">Criar Novos Banners</div>
+              <div className="text-primary">Criar Novos Banners</div>
             )}
           </Link>,
           "painel-de-controle/criar-novos-banners",
@@ -258,7 +258,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <PictureOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -266,12 +266,12 @@ export function ItensComponet(collapsed: any) {
         getItem(
           <Link
             href={"/painel-de-controle/gerenciar-banners"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Gerenciar Banners"
             ) : (
-              <div className="text-blue-400">Gerenciar Banners</div>
+              <div className="text-primary">Gerenciar Banners</div>
             )}
           </Link>,
           "painel-de-controle/gerenciar-banners",
@@ -279,7 +279,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <FundOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -287,24 +287,24 @@ export function ItensComponet(collapsed: any) {
       ]
     ),
     getItem(
-      <div className="text-white">Cupons</div>,
+      <div className="text-primary">Cupons</div>,
       "7",
       <div>
         <QrcodeOutlined
           style={{ fontSize: "24px" }}
-          className="text-blue-300"
+          className="text-primary"
         />
       </div>,
       [
         getItem(
           <Link
             href={"/painel-de-controle/criar-cupons"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Criar Cupons"
             ) : (
-              <div className="text-blue-400">Criar Cupons</div>
+              <div className="text-primary">Criar Cupons</div>
             )}{" "}
           </Link>,
           "painel-de-controle/criar-cupons",
@@ -312,7 +312,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <ShoppingOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -320,12 +320,12 @@ export function ItensComponet(collapsed: any) {
         getItem(
           <Link
             href={"/painel-de-controle/gerenciar-cupons"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Gerenciar Cupons"
             ) : (
-              <div className="text-blue-400">Gerenciar Cupons</div>
+              <div className="text-primary">Gerenciar Cupons</div>
             )}{" "}
           </Link>,
           "painel-de-controle/gerenciar-cupons",
@@ -333,7 +333,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <TagsOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -342,24 +342,24 @@ export function ItensComponet(collapsed: any) {
       ]
     ),
     getItem(
-      <div className="text-white">Relatórios</div>,
+      <div className="text-primary">Relatórios</div>,
       "8",
       <div>
         < PieChartFilled
           style={{ fontSize: "24px" }}
-          className="text-blue-300"
+          className="text-primary"
         />
       </div>,
       [
         getItem(
           <Link
             href={"/painel-de-controle/relatorios-produtos"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Produtos"
             ) : (
-              <div className="text-blue-400">Produtos</div>
+              <div className="text-primary">Produtos</div>
             )}{" "}
           </Link>,
           "/painel-de-controle/relatorios-produtos",
@@ -367,7 +367,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <ShoppingOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
@@ -375,12 +375,12 @@ export function ItensComponet(collapsed: any) {
         getItem(
           <Link
             href={"/painel-de-controle/relatorios-vendas"}
-            className="text-white"
+            className="text-primary"
           >
             {collapsed ? (
               "Vendas"
             ) : (
-              <div className="text-blue-400">Vendas</div>
+              <div className="text-primary">Vendas</div>
             )}{" "}
           </Link>,
           "/painel-de-controle/relatorios-vendas",
@@ -388,7 +388,7 @@ export function ItensComponet(collapsed: any) {
             {!collapsed && (
               <TagsOutlined
                 style={{ fontSize: "24px" }}
-                className="text-blue-300"
+                className="text-primary"
               />
             )}
           </div>
